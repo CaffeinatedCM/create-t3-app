@@ -239,8 +239,13 @@ export const runCli = async (): Promise<CliResults> => {
             ? p.note(chalk.redBright("Wrong answer, using TypeScript instead"))
             : undefined,
         styling: () => {
-          return p.confirm({
-            message: "Will you be using Tailwind CSS for styling?",
+          return p.select({
+            message: "What styling solution would you like to use?",
+            options: [
+              { value: "none", label: "None" },
+              { value: "tailwind", label: "Tailwind CSS" },
+            ],
+            initialValue: "tailwind",
           });
         },
         trpc: () => {
@@ -326,7 +331,7 @@ export const runCli = async (): Promise<CliResults> => {
     );
 
     const packages: AvailablePackages[] = [];
-    if (project.styling) packages.push("tailwind");
+    if (project.styling === "tailwind") packages.push("tailwind");
     if (project.trpc) packages.push("trpc");
     if (project.authentication === "next-auth") packages.push("nextAuth");
     if (project.database === "prisma") packages.push("prisma");
