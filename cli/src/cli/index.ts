@@ -244,6 +244,7 @@ export const runCli = async (): Promise<CliResults> => {
             options: [
               { value: "none", label: "None" },
               { value: "tailwind", label: "Tailwind CSS" },
+              { value: "stylex", label: "stylex" },
             ],
             initialValue: "tailwind",
           });
@@ -332,6 +333,7 @@ export const runCli = async (): Promise<CliResults> => {
 
     const packages: AvailablePackages[] = [];
     if (project.styling === "tailwind") packages.push("tailwind");
+    if (project.styling === "stylex") packages.push("stylex");
     if (project.trpc) packages.push("trpc");
     if (project.authentication === "next-auth") packages.push("nextAuth");
     if (project.database === "prisma") packages.push("prisma");

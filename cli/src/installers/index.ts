@@ -19,6 +19,7 @@ export const availablePackages = [
   "envVariables",
   "eslint",
   "dbContainer",
+  "stylex",
 ] as const;
 export type AvailablePackages = (typeof availablePackages)[number];
 
@@ -69,6 +70,12 @@ export const buildPkgInstallerMap = (
   tailwind: {
     inUse: packages.includes("tailwind"),
     installer: tailwindInstaller,
+  },
+  stylex: {
+    inUse: packages.includes("stylex"),
+    installer: () => {
+      console.log("stylex not yet implemented");
+    },
   },
   trpc: {
     inUse: packages.includes("trpc"),

@@ -29,6 +29,12 @@ export const dependencyVersionMap = {
   prettier: "^3.2.5",
   "prettier-plugin-tailwindcss": "^0.5.11",
 
+  // Stylex
+  "@stylexjs/open-props": "^0.5.1",
+  "@stylexjs/stylex": "^0.5.1",
+  "@stylexjs/babel-plugin": "^0.5.1",
+  "@stylexjs/nextjs-plugin": "^0.5.1",
+
   // tRPC
   "@trpc/client": "next",
   "@trpc/server": "next",
